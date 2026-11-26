@@ -1,0 +1,16 @@
+# Configuração do Netlify para o CDSP Champions
+[build]
+  publish = "public"
+  command = "echo 'Sem etapa de build: site estático + função /api'"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Cabeçalhos de segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
